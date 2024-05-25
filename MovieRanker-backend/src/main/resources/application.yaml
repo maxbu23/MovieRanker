@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: MovieRanker-backend
+  datasource:
+    url: "jdbc:mariadb://localhost:3306/movie_ranker_db"
+    username: root
+    password: password
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:schema.sql
+
+api:
+  access:
+    token:
+      auth: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZDJkM2EwM2JmM2QyZWJlZjk3N2JjY2YzYzE0ZjA1YSIsInN1YiI6IjY1ZjZjY2QyOTAzYzUyMDE2NTI3ZTQ4MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.eM9N1lD0NPHIYjwOZ8GOMVSvzyn53mApkZzEjlvzFpQ
+

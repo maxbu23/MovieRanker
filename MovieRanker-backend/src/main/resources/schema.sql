@@ -1,0 +1,36 @@
+CREATE TABLE IF NOT EXISTS user (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS movie (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    original_title VARCHAR(255) NOT NULL,
+    english_title VARCHAR(255) NOT NULL,
+    director VARCHAR(255) NOT NULL,
+    average_rate FLOAT NOT NULL,
+    poster_url VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS rate (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    movie_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    rate INTEGER NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
+    FOREIGN KEY (movie_id) REFERENCES movie(id),
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+CREATE TABLE IF NOT EXISTS review (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    movie_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    review VARCHAR(255) NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
+    FOREIGN KEY (movie_id) REFERENCES movie(id),
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
